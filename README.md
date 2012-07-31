@@ -1,71 +1,94 @@
-//
-//  MUBlockDelegateTests.m
-//  MUBlockDelegateTests
-//
-//  Created by 何 新宇 on 12-7-31.
-//  Copyright (c) 2012年 MUWork. All rights reserved.
-//
+MUBlockDelegate
+============
 
-#import "MUBlockDelegateTests.h"
-#import "MUBlockDelegate.h"
+1.normally, we use delegates as follows:
+   
+   firstly,
+   
+    @protocol TestProtcol <NSObject>
 
-#import "TestProtcol.h"
-#import "TestObject.h"
-#import "TestDelegateImpl.h"
+    - (NSString*) testDelegateMethod:(NSString*) aString;
 
-@implementation MUBlockDelegateTests
+    @end
 
-- (void)setUp
-{
-    [super setUp];
+    @interface TestDelegateImpl : NSObject<TestProtcol>
+
+    @end
+
+    and：
+
+    @implementation TestDelegateImpl
+
+    - (NSString*) testDelegateMethod:(NSString *)aString
+    {
+        return aString;
+    }
+
+    @end
     
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
+    secondly,
     
-    [super tearDown];
-}
+    #import "TestProtcol.h"
 
-- (void)testNormal {
+    @interface TestObject : NSObject
+
+    @property(nonatomic, weak) id<TestProtcol> delegate;
+
+    - (NSString*) callDelegate:(NSString*) aString;
+
+    @end
+    
+    @implementation TestObject
+
+    @synthesize delegate = _delegate;
+
+    - (NSString*) callDelegate:(NSString*) aString
+    {
+        if ([_delegate respondsToSelector:@selector(testDelegateMethod:)]) {
+            return [_delegate testDelegateMethod:aString];
+        }
+        
+        return nil;
+    }
+
+    @end
+    
+    at last, we do some tests:
+    
     TestDelegateImpl* testDelegate = [[TestDelegateImpl alloc] init];
     TestObject* testObject = [[TestObject alloc] init];
     testObject.delegate = testDelegate;
     
-    NSLog(@"testResult:%@", [testObject callDelegate:@"testNormal"]);
-}
+    NSLog(@"result:%@", [testObject callDelegate:@"testNormal"]);
+    
+2.if you use MUBlockDelegate:
 
-- (void)testBlock {
+    firstly,
+    
     MUBlockDelegate* testDelegate = [MUBlockDelegate delegateForSelectorString:@"(@)testDelegateMethod(@)" delegateBlock:^(NSInvocation *anInvocation, NSArray *params) {
         
         NSString* testString = [params objectAtIndex:0];
         [anInvocation setReturnValue:&testString];
     }];
     
+    then, do some tests,
+    
     TestObject* testObject = [[TestObject alloc] init];
     testObject.delegate = (id<TestProtcol>)testDelegate;
     
     NSString* testResult = [testObject callDelegate:@"testBlock"];
     NSLog(@"testResult:%@", testResult);
-}
-
-- (void)testClassBlock {
+    
+    that's all.
+    
+    the other approach:
+    
     MUBlockDelegate* testDelegate = [MUBlockDelegate delegateForClass:[TestDelegateImpl class] selector:@selector(testDelegateMethod:) delegateBlock:^(NSInvocation *anInvocation, NSArray *params) {
         
         NSString* testString = [params objectAtIndex:0];
         [anInvocation setReturnValue:&testString];
     }];
     
-    TestObject* testObject = [[TestObject alloc] init];
-    testObject.delegate = (id<TestProtcol>)testDelegate;
-    
-    NSString* testResult = [testObject callDelegate:@"testClassBlock"];
-    NSLog(@"testResult:%@", testResult);
-}
-
-- (void)testProtocolBlock {
     MUBlockDelegate* testDelegate = [MUBlockDelegate delegateForProtocol:@protocol(TestProtcol) selector:@selector(testDelegateMethod:) delegateBlock:^void(NSInvocation* anInvocation, NSArray *params) {
         NSLog(@"params:%@", anInvocation);
         
@@ -73,11 +96,7 @@
         [anInvocation setReturnValue:&testString];
     }];
     
-    TestObject* testObject = [[TestObject alloc] init];
-    testObject.delegate = (id<TestProtcol>)testDelegate;
+    do the same thing.
     
-    NSString* testResult = [testObject callDelegate:@"testProtocolBlock"];
-    NSLog(@"testResult:%@", testResult);
-}
-
-@end
+3.run the TESTCASE
+    

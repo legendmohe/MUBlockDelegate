@@ -9,13 +9,17 @@
 /* Begin PBXBuildFile section */
 		B315DB0615C7E8E60066B086 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315DB0515C7E8E60066B086 /* Foundation.framework */; };
 		B315DB0B15C7E8E60066B086 /* MUBlockDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B315DB0A15C7E8E60066B086 /* MUBlockDelegate.h */; };
-		B315DB0D15C7E8E60066B086 /* MUBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB0C15C7E8E60066B086 /* MUBlockDelegate.m */; };
 		B315DB1515C7E8E60066B086 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315DB1415C7E8E60066B086 /* SenTestingKit.framework */; };
 		B315DB1715C7E8E60066B086 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315DB1615C7E8E60066B086 /* UIKit.framework */; };
 		B315DB1815C7E8E60066B086 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B315DB0515C7E8E60066B086 /* Foundation.framework */; };
 		B315DB1B15C7E8E60066B086 /* libMUBlockDelegate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B315DB0215C7E8E60066B086 /* libMUBlockDelegate.a */; };
 		B315DB2115C7E8E60066B086 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B315DB1F15C7E8E60066B086 /* InfoPlist.strings */; };
 		B315DB2415C7E8E60066B086 /* MUBlockDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB2315C7E8E60066B086 /* MUBlockDelegateTests.m */; };
+		B315DB3215C7E9BC0066B086 /* TestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB3115C7E9BC0066B086 /* TestObject.m */; };
+		B315DB3415C7ED210066B086 /* MUBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB0C15C7E8E60066B086 /* MUBlockDelegate.m */; };
+		B315DB3515C7ED2C0066B086 /* MUBlockDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB0C15C7E8E60066B086 /* MUBlockDelegate.m */; };
+		B315DB3815C7ED740066B086 /* TestDelegateImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = B315DB3715C7ED740066B086 /* TestDelegateImpl.m */; };
+		B315DB3A15C7EF720066B086 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = B315DB3915C7EF720066B086 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,12 @@
 		B315DB2015C7E8E60066B086 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B315DB2215C7E8E60066B086 /* MUBlockDelegateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBlockDelegateTests.h; sourceTree = "<group>"; };
 		B315DB2315C7E8E60066B086 /* MUBlockDelegateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBlockDelegateTests.m; sourceTree = "<group>"; };
+		B315DB3015C7E9BC0066B086 /* TestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObject.h; sourceTree = "<group>"; };
+		B315DB3115C7E9BC0066B086 /* TestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObject.m; sourceTree = "<group>"; };
+		B315DB3315C7E9D70066B086 /* TestProtcol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestProtcol.h; sourceTree = "<group>"; };
+		B315DB3615C7ED740066B086 /* TestDelegateImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDelegateImpl.h; sourceTree = "<group>"; };
+		B315DB3715C7ED740066B086 /* TestDelegateImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDelegateImpl.m; sourceTree = "<group>"; };
+		B315DB3915C7EF720066B086 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +92,7 @@
 		B315DAF715C7E8E60066B086 = {
 			isa = PBXGroup;
 			children = (
+				B315DB3915C7EF720066B086 /* README.md */,
 				B315DB0715C7E8E60066B086 /* MUBlockDelegate */,
 				B315DB1C15C7E8E60066B086 /* MUBlockDelegateTests */,
 				B315DB0415C7E8E60066B086 /* Frameworks */,
@@ -129,6 +140,11 @@
 		B315DB1C15C7E8E60066B086 /* MUBlockDelegateTests */ = {
 			isa = PBXGroup;
 			children = (
+				B315DB3615C7ED740066B086 /* TestDelegateImpl.h */,
+				B315DB3715C7ED740066B086 /* TestDelegateImpl.m */,
+				B315DB3315C7E9D70066B086 /* TestProtcol.h */,
+				B315DB3015C7E9BC0066B086 /* TestObject.h */,
+				B315DB3115C7E9BC0066B086 /* TestObject.m */,
 				B315DB2215C7E8E60066B086 /* MUBlockDelegateTests.h */,
 				B315DB2315C7E8E60066B086 /* MUBlockDelegateTests.m */,
 				B315DB1D15C7E8E60066B086 /* Supporting Files */,
@@ -217,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B315DB2115C7E8E60066B086 /* InfoPlist.strings in Resources */,
+				B315DB3A15C7EF720066B086 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B315DB0D15C7E8E60066B086 /* MUBlockDelegate.m in Sources */,
+				B315DB3515C7ED2C0066B086 /* MUBlockDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B315DB2415C7E8E60066B086 /* MUBlockDelegateTests.m in Sources */,
+				B315DB3215C7E9BC0066B086 /* TestObject.m in Sources */,
+				B315DB3415C7ED210066B086 /* MUBlockDelegate.m in Sources */,
+				B315DB3815C7ED740066B086 /* TestDelegateImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,7 +318,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -317,7 +337,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
