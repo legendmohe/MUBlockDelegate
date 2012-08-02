@@ -149,6 +149,15 @@ const char * procure_encoding_string_for_selector_from_protocol(SEL sel, Protoco
     }
 }
 
+- (void) removeDelegateForSelector:(SEL) aSelector
+{
+    if (aSelector == nil) {
+        return;
+    }
+    
+    [_SELBlockDictionary removeObjectForKey:NSStringFromSelector(aSelector)];
+}
+
 #pragma mark - private
 
 - (MUBlockValueObject*) valueObjectForSelectorString:(NSString*) selectorString

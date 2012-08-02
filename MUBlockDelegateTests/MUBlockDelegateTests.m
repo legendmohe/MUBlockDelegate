@@ -30,6 +30,7 @@
 }
 
 - (void)testNormal {
+    
     TestDelegateImpl* testDelegate = [[TestDelegateImpl alloc] init];
     TestObject* testObject = [[TestObject alloc] init];
     testObject.delegate = testDelegate;
